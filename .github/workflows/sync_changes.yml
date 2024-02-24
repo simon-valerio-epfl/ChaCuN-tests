@@ -1,0 +1,36 @@
+name: Sync Specific Folder
+
+on: 
+  repository_dispatch:
+    types:
+      - webhook
+
+jobs:
+  sync-folder:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Test Repository
+        uses: actions/checkout@v3
+        with:
+          path: 'ChaCuN-tests'
+    
+      - name: Checkout Main Repository
+        uses: actions/checkout@v3
+        with:
+          repository: 'simon-valerio-epfl/ChaCuN'
+          token: ${{ secrets.PAT }}
+          path: 'ChaCuN'
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "bot@epfl.ch"
+          git config --global user.name "Schinc"
+
+      - name: Sync Changes to Specific Folder
+        run: |
+          cd ChaCuN-tests
+          cp -R ../../ChaCuN/test/ch/epfl/chacun/* .
+          git add .
+          git commit -m "Add tests"
+          git push HEAD:master
