@@ -33,4 +33,4 @@ jobs:
           cp -R ../ChaCuN/test/ch/epfl/chacun/* .
           git add .
           git commit -m "Add tests"
-          git push HEAD:master
+          git push https://androz2091:${{ secrets.PAT }}@github.com/simon-valerio-epfl/ChaCuN-tests.git HEAD:master
