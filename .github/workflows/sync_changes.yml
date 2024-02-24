@@ -30,7 +30,7 @@ jobs:
       - name: Sync Changes to Specific Folder
         run: |
           cd ChaCuN-tests
-          cp -R ../../ChaCuN/test/ch/epfl/chacun/* .
+          cp -R ../ChaCuN/test/ch/epfl/chacun/* .
           git add .
           git commit -m "Add tests"
           git push HEAD:master
