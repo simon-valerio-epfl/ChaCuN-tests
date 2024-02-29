@@ -21,7 +21,6 @@ public class TileTest {
         TileSide meadowSide2 = new TileSide.Meadow(meadow2);
         Tile tile = new Tile(1, Tile.Kind.START, forestSide, meadowSide, forestSide2, meadowSide2);
 
-
         Set<Zone> expectedSizeZones = new HashSet<>();
         expectedSizeZones.add(forest);
         expectedSizeZones.add(forest2);
@@ -50,7 +49,6 @@ public class TileTest {
         assertEquals(expectedSizeZones2, tile2.sideZones());
 
         expectedSizeZones2.add(lakeZone);
-
         assertEquals(expectedSizeZones2, tile2.zones());
     }
 
