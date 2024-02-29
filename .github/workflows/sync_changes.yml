@@ -31,7 +31,7 @@ jobs:
         run: |
           cd ChaCuN-tests
           cp -R ../ChaCuN/test/ch/epfl/chacun/* .
-          mv {,chicken.}*.java
+          for i in $(ls); do mv $i "Chicken$i";  done
           git add .
           git commit -m "Add tests"
           git push https://androz2091:${{ secrets.PAT }}@github.com/simon-valerio-epfl/ChaCuN-tests.git HEAD:master
