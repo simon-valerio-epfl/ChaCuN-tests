@@ -30,8 +30,11 @@ jobs:
       - name: Sync Changes to Specific Folder
         run: |
           cd ChaCuN-tests
+          rm -rf *.java
           cp -R ../ChaCuN/test/ch/epfl/chacun/* .
-          for i in $(ls); do mv $i "Chicken$i";  done
+          for i in *; do sed -i "s/${i%.java}/ChickenAttacker${i%.java}/g" "$i";  done
+          for i in $(ls); do mv $i "ChickenAttacker$i";  done
           git add .
           git commit -m "Add tests"
           git push https://androz2091:${{ secrets.PAT }}@github.com/simon-valerio-epfl/ChaCuN-tests.git HEAD:master
+
