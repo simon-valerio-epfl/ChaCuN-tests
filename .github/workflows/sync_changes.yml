@@ -31,6 +31,7 @@ jobs:
         run: |
           cd ChaCuN-tests
           rm -rf *.java
+          rm -rf *.csv
           cp -R ../ChaCuN/test/ch/epfl/chacun/* .
           for i in *; do sed -i "s/${i%.java}/ChickenAttacker${i%.java}/g" "$i";  done
           for i in $(ls); do mv $i "ChickenAttacker$i";  done
