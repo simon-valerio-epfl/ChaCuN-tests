@@ -136,4 +136,8 @@ class ChickenAttackerInitialGameStateTest {
 
     }
 
+    @Test
+    void habibNoAddAction() {
+        assertEquals(5, GameState.Action.values().length);
+    }
 }
